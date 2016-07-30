@@ -10,7 +10,7 @@
 
         <activity android:name=".HomeActivity"
             android:label="Alpha Launcher Home"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
             android:launchMode="singleTask"
             android:stateNotNeeded="true">
             <intent-filter>
@@ -22,7 +22,7 @@
         </activity>
 
         <activity android:name=".AppsListActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar">
         </activity>
     </application>
 

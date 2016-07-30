@@ -14,6 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class AppsListActivity extends Activity {
@@ -43,6 +45,13 @@ public class AppsListActivity extends Activity {
                     ri.activityInfo.loadIcon(manager)
             ));
         }
+
+        Collections.sort(mApps, new Comparator<AppInfo>() {
+            @Override
+            public int compare(AppInfo app1, AppInfo app2) {
+                return app1.label.toString().compareTo(app2.label.toString());
+            }
+        });
     }
 
     private void loadListView() {
