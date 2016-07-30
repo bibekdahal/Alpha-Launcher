@@ -5,12 +5,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="true">
 
         <activity android:name=".HomeActivity"
-            android:label="Alpha Launcher Home"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:label="Alpha Launcher"
+            android:theme="@style/HomeTheme"
             android:launchMode="singleTask"
             android:stateNotNeeded="true">
             <intent-filter>
@@ -22,7 +21,7 @@
         </activity>
 
         <activity android:name=".AppsListActivity"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@style/AppsListTheme">
         </activity>
     </application>
 
