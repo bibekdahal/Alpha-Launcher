@@ -43,13 +43,29 @@ public class AppsListActivity extends Activity {
         loadApps();
         loadListView();
 
-        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(this);
-        final Drawable wallpaperDrawable = wallpaperManager.getFastDrawable();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            findViewById(R.id.layout_apps_list).setBackground(
-                   wallpaperDrawable
-            );
-        }
+        // We need width and height of layout for the wallpaper
+        // which is only available after the layout is shown.
+        // So, show the wallpaper on the layout's post runnable.
+        final View layout = findViewById(R.id.layout_apps_list);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    // Get the wallpaper drawable.
+                    WallpaperManager wallpaperManager =
+                            WallpaperManager.getInstance(AppsListActivity.this);
+                    Drawable drawable = wallpaperManager.getFastDrawable();
+
+                    // Convert to bitmap and blur it.
+                    Bitmap bitmap = Utilities.convertToBitmap(drawable,
+                            layout.getWidth(), layout.getHeight());
+                    bitmap = Utilities.blur(AppsListActivity.this, bitmap);
+
+                    // Set as wallpaper.
+                        layout.setBackground(new BitmapDrawable(getResources(), bitmap));
+                }
+            }
+        });
     }
 
     private void loadApps() {

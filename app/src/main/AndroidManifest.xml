@@ -11,6 +11,7 @@
             android:label="Alpha Launcher"
             android:theme="@style/HomeTheme"
             android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

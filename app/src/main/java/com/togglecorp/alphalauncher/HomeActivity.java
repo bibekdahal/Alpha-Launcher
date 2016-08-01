@@ -1,7 +1,12 @@
 package com.togglecorp.alphalauncher;
 
 import android.app.Activity;
+import android.app.WallpaperManager;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,5 +26,9 @@ public class HomeActivity extends Activity {
                     }
                 }
         );
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
